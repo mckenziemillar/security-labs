@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="920" height="360" rx="10" fill="#ffffff" stroke="#d3dae3"/>
+  <text x="30" y="40" font-size="20" font-weight="700" fill="#101a2b">Attack surfaces across an ML pipeline</text>
+  <text x="30" y="64" font-size="13" fill="#566375">Each stage can be targeted differently. The two highlighted below are analyzed in this writeup.</text>
+
+  <!-- stage boxes -->
+  <g>
+    <!-- box1 highlighted -->
+    <rect x="20" y="95" width="150" height="58" rx="8" fill="#e8f0ff" stroke="#1b57c4" stroke-width="2"/>
+    <text x="95" y="130" font-size="14" font-weight="600" fill="#12325f" text-anchor="middle">Data Collection</text>
+    <!-- box2 -->
+    <rect x="202" y="95" width="150" height="58" rx="8" fill="#eef2f7" stroke="#c4ced9"/>
+    <text x="277" y="122" font-size="14" font-weight="600" fill="#1f2b3a" text-anchor="middle">Data</text>
+    <text x="277" y="140" font-size="14" font-weight="600" fill="#1f2b3a" text-anchor="middle">Preprocessing</text>
+    <!-- box3 -->
+    <rect x="384" y="95" width="150" height="58" rx="8" fill="#eef2f7" stroke="#c4ced9"/>
+    <text x="459" y="130" font-size="14" font-weight="600" fill="#1f2b3a" text-anchor="middle">Model Training</text>
+    <!-- box4 highlighted -->
+    <rect x="566" y="95" width="150" height="58" rx="8" fill="#e8f0ff" stroke="#1b57c4" stroke-width="2"/>
+    <text x="641" y="130" font-size="14" font-weight="600" fill="#12325f" text-anchor="middle">Model Inference</text>
+    <!-- box5 -->
+    <rect x="748" y="95" width="150" height="58" rx="8" fill="#eef2f7" stroke="#c4ced9"/>
+    <text x="823" y="130" font-size="14" font-weight="600" fill="#1f2b3a" text-anchor="middle">Deployment</text>
+  </g>
+
+  <!-- arrows between stages -->
+  <g stroke="#8a97a7" stroke-width="2" fill="none">
+    <path d="M170 124 L202 124" marker-end="url(#ah)"/>
+    <path d="M352 124 L384 124" marker-end="url(#ah)"/>
+    <path d="M534 124 L566 124" marker-end="url(#ah)"/>
+    <path d="M716 124 L748 124" marker-end="url(#ah)"/>
+  </g>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#8a97a7"/>
+    </marker>
+  </defs>
+
+  <!-- connectors to attack tags -->
+  <g stroke-width="1.5" fill="none">
+    <path d="M95 153 L95 212" stroke="#d9534f"/>
+    <path d="M277 153 L277 212" stroke="#aab4c0"/>
+    <path d="M459 153 L459 212" stroke="#aab4c0"/>
+    <path d="M641 153 L641 212" stroke="#d9534f"/>
+    <path d="M823 153 L823 212" stroke="#aab4c0"/>
+  </g>
+
+  <!-- attack tags -->
+  <g>
+    <!-- data poisoning (highlighted) -->
+    <rect x="20" y="212" width="150" height="48" rx="8" fill="#fdecec" stroke="#d9534f"/>
+    <text x="95" y="233" font-size="12.5" font-weight="700" fill="#8a2a2a" text-anchor="middle">Data poisoning</text>
+    <text x="95" y="250" font-size="10.5" fill="#8a2a2a" text-anchor="middle">corrupt the training set</text>
+    <!-- preprocessing (muted) -->
+    <rect x="202" y="212" width="150" height="48" rx="8" fill="#f3f5f8" stroke="#cfd7e0"/>
+    <text x="277" y="233" font-size="12.5" font-weight="600" fill="#566375" text-anchor="middle">Feature / label</text>
+    <text x="277" y="250" font-size="12.5" font-weight="600" fill="#566375" text-anchor="middle">tampering</text>
+    <!-- training (muted) -->
+    <rect x="384" y="212" width="150" height="48" rx="8" fill="#f3f5f8" stroke="#cfd7e0"/>
+    <text x="459" y="240" font-size="12.5" font-weight="600" fill="#566375" text-anchor="middle">Backdoor insertion</text>
+    <!-- inference (highlighted) -->
+    <rect x="566" y="212" width="150" height="48" rx="8" fill="#fdecec" stroke="#d9534f"/>
+    <text x="641" y="233" font-size="12.5" font-weight="700" fill="#8a2a2a" text-anchor="middle">Prompt injection</text>
+    <text x="641" y="250" font-size="10.5" fill="#8a2a2a" text-anchor="middle">&amp; evasion attacks</text>
+    <!-- deployment (muted) -->
+    <rect x="748" y="212" width="150" height="48" rx="8" fill="#f3f5f8" stroke="#cfd7e0"/>
+    <text x="823" y="233" font-size="12.5" font-weight="600" fill="#566375" text-anchor="middle">Model extraction</text>
+    <text x="823" y="250" font-size="12.5" font-weight="600" fill="#566375" text-anchor="middle">/ API abuse</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <rect x="30" y="300" width="14" height="14" rx="3" fill="#fdecec" stroke="#d9534f"/>
+    <text x="52" y="311" font-size="12" fill="#566375">Analyzed in this writeup</text>
+    <rect x="230" y="300" width="14" height="14" rx="3" fill="#f3f5f8" stroke="#cfd7e0"/>
+    <text x="252" y="311" font-size="12" fill="#566375">Other common attack surfaces</text>
+  </g>
+</svg>

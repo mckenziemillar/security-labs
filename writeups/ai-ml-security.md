@@ -10,6 +10,8 @@ pipeline an adversary can target that don't exist in traditional software.
 Data collection → preprocessing → model training → inference → deployment. Each
 stage is a potential target.
 
+![Attack surfaces across an ML pipeline](images/ml-pipeline-attacks.svg)
+
 ## Components I analyzed
 
 ### Data Collection
