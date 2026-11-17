@@ -16,6 +16,7 @@ These were course labs and personal practice, not production security work.
 | [WannaCry Attack Analysis](writeups/wannacry-attack-analysis.md) | Ransomware case study | ATT&CK mapping, incident analysis |
 | [AI/ML Security Threats](writeups/ai-ml-security.md) | Attacks against ML pipelines | Data poisoning, prompt injection, adversarial ML |
 | [Password Cracking with Hashcat](writeups/password-cracking-hashcat.md) | Brute-force & dictionary attacks | hashcat, keyspace analysis, hashing & salting |
+| [RSA Encryption & Primality Testing](writeups/rsa-encryption-primality.md) | Public-key crypto from scratch | RSA, Fermat/Miller-Rabin, modular exponentiation |
 
 ## Frameworks & references used
 - [MITRE ATT&CK](https://attack.mitre.org/)
