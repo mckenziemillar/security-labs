@@ -15,6 +15,7 @@ These were course labs and personal practice, not production security work.
 | [Mapping a Breach to MITRE ATT&CK](writeups/attack-mapping-novatech.md) | Breach analysis with ATT&CK | ATT&CK framework, kill chain, threat analysis |
 | [WannaCry Attack Analysis](writeups/wannacry-attack-analysis.md) | Ransomware case study | ATT&CK mapping, incident analysis |
 | [AI/ML Security Threats](writeups/ai-ml-security.md) | Attacks against ML pipelines | Data poisoning, prompt injection, adversarial ML |
+| [Password Cracking with Hashcat](writeups/password-cracking-hashcat.md) | Brute-force & dictionary attacks | hashcat, keyspace analysis, hashing & salting |
 
 ## Frameworks & references used
 - [MITRE ATT&CK](https://attack.mitre.org/)
