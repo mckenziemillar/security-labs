@@ -32,6 +32,8 @@ All three cracked at length 5. The reason the mask has to reach length 5 (and
 can't stop at 4) is the whole lesson: each extra character multiplies the work
 by 95.
 
+![Brute-force MD5 crack](images/bruteforce-md5-crack.png)
+
 ## Dictionary attack (Linux shadow hashes)
 Linux stores password hashes in `/etc/shadow`. These were `md5crypt` (`$1$...`) —
 salted, so each hash carries its own random salt between the `$` signs. Brute
@@ -50,6 +52,8 @@ common rockyou entry (`chocolate`, `superman`, `spongebob`, `princess1`,
 `pokemon`). The salt stops precomputed rainbow tables, but it does nothing
 against a weak password already in the wordlist — the salt only has to be
 computed once per guess per user.
+
+![Dictionary md5crypt crack](images/dictionary-md5crypt-crack.png)
 
 ## Why length beats complexity (keyspace)
 Maximum guesses to exhaust a search space is `charset_size ^ length`:
