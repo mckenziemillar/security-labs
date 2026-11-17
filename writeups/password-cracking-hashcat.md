@@ -33,20 +33,23 @@ can't stop at 4) is the whole lesson: each extra character multiplies the work
 by 95.
 
 ## Dictionary attack (Linux shadow hashes)
-Linux stores password hashes in `/etc/shadow`, typically as `sha512crypt`
-(`$6$...`) — deliberately slow and salted. Brute force is impractical, so you
-feed real-world passwords from `rockyou`:
+Linux stores password hashes in `/etc/shadow`. These were `md5crypt` (`$1$...`) —
+salted, so each hash carries its own random salt between the `$` signs. Brute
+force over the salt space is pointless; instead you feed real-world passwords
+from `rockyou`:
 ```bash
 cut -d: -f1,2 shadow > shadow_hashes.txt      # keep user:hash
-hashcat -m 1800 -a 0 --username shadow_hashes.txt rockyou.txt
-hashcat -m 1800 shadow_hashes.txt --show
+hashcat -m 500 -a 0 --username shadow_hashes.txt rockyou.txt
+hashcat -m 500 shadow_hashes.txt --show
 ```
-- `-m 1800` = sha512crypt, `-a 0` = wordlist mode, `--username` = input has a
-  `user:hash` column
+- `-m 500` = md5crypt (`$1$`); use `-m 1800` for sha512crypt (`$6$`)
+- `-a 0` = wordlist mode, `--username` = input has a `user:hash` column
 
-Dictionary works here because real users pick guessable passwords — the salt
-stops precomputed rainbow tables, but it does nothing against a weak password
-that's already in the wordlist.
+All five target accounts fell in milliseconds, because every password was a
+common rockyou entry (`chocolate`, `superman`, `spongebob`, `princess1`,
+`pokemon`). The salt stops precomputed rainbow tables, but it does nothing
+against a weak password already in the wordlist — the salt only has to be
+computed once per guess per user.
 
 ## Why length beats complexity (keyspace)
 Maximum guesses to exhaust a search space is `charset_size ^ length`:
